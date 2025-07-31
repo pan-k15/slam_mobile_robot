@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="robot_body">
+
+  <!-- Inertial calculator macro -->
+  <xacro:macro name="inertial_box" params="mass x y z">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia 
+        ixx="${(1/12.0)*mass*(y*y + z*z)}"
+        iyy="${(1/12.0)*mass*(x*x + z*z)}"
+        izz="${(1/12.0)*mass*(x*x + y*y)}"
+        ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial>
+  </xacro:macro>
+
+  <!-- Base body link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="${body_length} ${body_width} ${body_height}"/>
+      </geometry>
+      <origin xyz="0 0 ${body_height/2}" rpy="0 0 0"/>
+      <material name="robot_body_color">
+        <color rgba="${body_color}"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="${body_length} ${body_width} ${body_height}"/>
+      </geometry>
+      <origin xyz="0 0 ${body_height/2}" rpy="0 0 0"/>
+    </collision>
+
+    <xacro:inertial_box mass="${body_mass}" x="${body_length}" y="${body_width}" z="${body_height}"/>
+  </link>
+
+</robot>
