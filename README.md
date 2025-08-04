@@ -1,2 +1,2 @@
-# slam_mobile_robot
+# SLAM Mobile Robot
 2WD mobile robot with slam toolbox
