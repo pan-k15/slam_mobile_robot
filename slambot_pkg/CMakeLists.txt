@@ -7,6 +7,8 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -22,8 +24,16 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+add_executable(cmd_vel_relay src/cmd_vel_relay.cpp)
+ament_target_dependencies(cmd_vel_relay rclcpp geometry_msgs)
+install(TARGETS
+  cmd_vel_relay
+  DESTINATION lib/${PROJECT_NAME})
+
+
 install(
-  DIRECTORY launch worlds config urdf 
+  DIRECTORY launch worlds config urdf maps
   DESTINATION share/${PROJECT_NAME}
 )
 ament_package()

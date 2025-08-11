@@ -40,6 +40,8 @@
   gz_type_name: "gz.msgs.Twist"
   direction: ROS_TO_GZ
 
+
+
 # gz topic published by JointState plugin
 - ros_topic_name: "joint_states"
   gz_topic_name: "joint_states"
