@@ -46,4 +46,12 @@ ros2 launch nav2_bringup navigation_launch.py use_sim_time:=True
 - [x] Mapping
 - [x] Localization
 - [x] Navigation
-- [] Computer vision
+- [ ] Computer vision
+
+---
+
+#### Support me
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P71JL5X3)
+
+<a href="https://www.buymeacoffee.com/pan.tech" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
